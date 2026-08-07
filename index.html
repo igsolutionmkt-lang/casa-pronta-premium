@@ -4,6 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Casa Pronta Premium — limpeza técnica, cuidado residencial, pós-obra e preparação de alojamentos locais no Porto, Gaia e Matosinhos.">
+  <link rel="canonical" href="https://igsolutionmkt-lang.github.io/casa-pronta-premium/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:title" content="Casa Pronta Premium | Cuidado profissional de imóveis">
+  <meta property="og:description" content="Cuidado residencial premium, limpeza profunda, pós-obra e preparação de alojamentos locais no Porto, Gaia e Matosinhos.">
+  <meta property="og:url" content="https://igsolutionmkt-lang.github.io/casa-pronta-premium/">
+  <meta property="og:image" content="https://igsolutionmkt-lang.github.io/casa-pronta-premium/assets/images/sala-premium.png">
   <meta name="theme-color" content="#153c32">
   <title>Casa Pronta Premium | Cuidado profissional de imóveis</title>
   <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
@@ -216,6 +223,8 @@
           <details><summary>O orçamento é calculado por hora?</summary><p>O cálculo interno considera tempo e recursos, mas a proposta é apresentada por serviço, plano ou imóvel, conforme a necessidade.</p></details>
           <details><summary>Utilizam produtos próprios?</summary><p>Sim. A equipa leva os produtos e equipamentos definidos para o serviço, respeitando materiais e restrições do imóvel.</p></details>
           <details><summary>É possível incluir alojamento local?</summary><p>Sim. A linha Casa Pronta Stay será ativada por zona, com processos específicos para turnover, roupa, consumíveis e verificação.</p></details>
+          <details><summary>Como é gerido o acesso ao imóvel?</summary><p>O protocolo de entrada é definido na avaliação e fica limitado à operação acordada. Chaves, códigos e instruções de acesso não são incluídos em mensagens de serviço ou registos fotográficos.</p></details>
+          <details><summary>E se algum ponto não ficar conforme o combinado?</summary><p>O cliente comunica a ocorrência, analisamos a ficha e a validação do serviço e definimos a correção prioritária adequada. O objetivo é resolver e atualizar o processo para evitar repetição.</p></details>
         </div>
       </div>
     </section>
@@ -234,8 +243,9 @@
         <form class="contact-form reveal" id="lead-form">
           <div class="field-row">
             <label>Nome<input type="text" name="nome" autocomplete="name" required></label>
-            <label>Telefone<input type="tel" name="telefone" autocomplete="tel" inputmode="tel" required></label>
+            <label>Telefone<input type="tel" name="telefone" autocomplete="tel" inputmode="tel" minlength="9" pattern="[+0-9 ()-]{9,}" required></label>
           </div>
+          <label>Email<input type="email" name="email" autocomplete="email" required></label>
           <label>Localização do imóvel<input type="text" name="localizacao" placeholder="Ex.: Vila Nova de Gaia" required></label>
           <div class="field-row">
             <label>Tipo de imóvel<select name="imovel" required><option value="">Selecionar</option><option>Apartamento T1/T2</option><option>Apartamento T3/T4</option><option>Moradia</option><option>Alojamento local</option><option>Imóvel pós-obra</option></select></label>
@@ -254,12 +264,15 @@
     <div class="container footer-grid">
       <div class="brand footer-brand"><img src="assets/logo-mark.svg" alt="" width="44" height="44"><span><strong>Casa Pronta</strong><small>Premium</small></span></div>
       <p>Limpeza técnica e cuidado profissional para apartamentos, moradias, pós-obra e alojamento local.</p>
-      <div class="footer-links"><a href="#servicos">Serviços</a><a href="#metodo">Método</a><a href="#orcamento">Contacto</a></div>
+      <div class="footer-links"><a href="#servicos">Serviços</a><a href="#metodo">Método</a><a href="#orcamento">Contacto</a><a href="mailto:contacto@casaprontapremium.pt">Email</a></div>
     </div>
     <div class="container footer-bottom"><span>© <span id="year"></span> Casa Pronta Premium</span><span>Porto · Gaia · Matosinhos</span></div>
   </footer>
 
   <script src="config.js"></script>
   <script src="script.js"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"HouseCleaning","name":"Casa Pronta Premium","url":"https://igsolutionmkt-lang.github.io/casa-pronta-premium/","email":"contacto@casaprontapremium.pt","areaServed":["Porto","Vila Nova de Gaia","Matosinhos"],"serviceType":["Limpeza residencial recorrente","Limpeza profunda","Limpeza pós-obra","Preparação de alojamento local"]}
+  </script>
 </body>
 </html>

@@ -110,21 +110,29 @@ form.addEventListener('submit', event => {
   const data = new FormData(form);
   const cfg = window.CASA_PRONTA_CONFIG || {};
   const number = String(cfg.whatsappNumber || '').replace(/\D/g, '');
-  if (!number || /000000/.test(number)) {
-    status.classList.add('error');
-    status.textContent = 'O contacto por WhatsApp ainda não está disponível. Tente novamente mais tarde.';
-    return;
-  }
   const message = [
     'Olá, gostaria de solicitar uma avaliação da Casa Pronta Premium.',
     '',
     `Nome: ${data.get('nome')}`,
     `Telefone: ${data.get('telefone')}`,
+    `Email: ${data.get('email')}`,
     `Localização: ${data.get('localizacao')}`,
     `Tipo de imóvel: ${data.get('imovel')}`,
     `Serviço: ${data.get('servico')}`,
     `Informações: ${data.get('mensagem') || 'Não indicado'}`
   ].join('\n');
+  if (!number || /000000/.test(number)) {
+    const email = String(cfg.businessEmail || '').trim();
+    if (!email || !email.includes('@')) {
+      status.classList.add('error');
+      status.textContent = 'Os canais de contacto ainda não estão configurados. Escreva para contacto@casaprontapremium.pt.';
+      return;
+    }
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent('Pedido de consulta privada')}&body=${encodeURIComponent(message)}`;
+    status.classList.add('success');
+    status.textContent = 'A abrir o seu email com os dados do pedido…';
+    return;
+  }
   window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   status.classList.add('success');
   status.textContent = 'A abrir o WhatsApp com os dados do pedido…';
