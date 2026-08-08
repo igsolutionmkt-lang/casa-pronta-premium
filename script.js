@@ -108,10 +108,10 @@ form.addEventListener('submit', event => {
   event.preventDefault();
   if (!form.reportValidity()) return;
   const data = new FormData(form);
-  const cfg = window.CASA_PRONTA_CONFIG || {};
+  const cfg = window.LAREVIA_CONFIG || {};
   const number = String(cfg.whatsappNumber || '').replace(/\D/g, '');
   const message = [
-    'Olá, gostaria de solicitar uma avaliação da Casa Pronta Premium.',
+    'Olá, gostaria de solicitar uma avaliação da Larevia.',
     '',
     `Nome: ${data.get('nome')}`,
     `Telefone: ${data.get('telefone')}`,
@@ -125,7 +125,7 @@ form.addEventListener('submit', event => {
     const email = String(cfg.businessEmail || '').trim();
     if (!email || !email.includes('@')) {
       status.classList.add('error');
-      status.textContent = 'Os canais de contacto ainda não estão configurados. Escreva para contacto@casaprontapremium.pt.';
+      status.textContent = 'Os canais de contacto ainda não estão configurados. Escreva para contacto@larevia.pt.';
       return;
     }
     window.location.href = `mailto:${email}?subject=${encodeURIComponent('Pedido de consulta privada')}&body=${encodeURIComponent(message)}`;

@@ -1,4 +1,4 @@
-# Casa Pronta Premium — Website
+# Larevia — Website
 
 Site institucional responsivo em HTML, CSS e JavaScript, sem dependências externas.
 
