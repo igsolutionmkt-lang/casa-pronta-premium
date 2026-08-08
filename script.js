@@ -6,8 +6,17 @@ const form = document.getElementById('lead-form');
 const status = document.getElementById('form-status');
 const progressBar = document.querySelector('.scroll-progress span');
 const languageLinks = [...document.querySelectorAll('[data-language]')];
+const languageSwitcher = document.querySelector('.language-switcher');
+const languageTrigger = document.querySelector('.language-trigger');
+const currentLanguageFlag = document.querySelector('[data-current-language-flag]');
+const currentLanguageLabel = document.querySelector('[data-current-language-label]');
 const i18n = window.LAREVIA_I18N;
 const supportedLanguages = ['pt', 'en', 'es'];
+const languageOptions = {
+  pt: { flag: '#flag-pt', label: 'Português' },
+  en: { flag: '#flag-en', label: 'English' },
+  es: { flag: '#flag-es', label: 'Español' }
+};
 const productionUrl = 'https://igsolutionmkt-lang.github.io/casa-pronta-premium/';
 const requestedLanguage = new URLSearchParams(window.location.search).get('lang');
 let currentLanguage = supportedLanguages.includes(requestedLanguage) ? requestedLanguage : 'pt';
@@ -89,6 +98,8 @@ const applyLanguage = (language, updateUrl = false) => {
     if (active) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   });
+  currentLanguageFlag.querySelector('use').setAttribute('href', languageOptions[language].flag);
+  currentLanguageLabel.textContent = languageOptions[language].label;
 
   const menuCopy = i18n.interface[language];
   const menuOpen = nav.classList.contains('open');
@@ -113,7 +124,22 @@ const setHeader = () => {
 setHeader();
 window.addEventListener('scroll', setHeader, { passive: true });
 
+const closeLanguageSwitcher = () => {
+  languageSwitcher.classList.remove('open');
+  languageTrigger.setAttribute('aria-expanded', 'false');
+};
+
+languageTrigger.addEventListener('click', event => {
+  event.stopPropagation();
+  const open = languageSwitcher.classList.toggle('open');
+  languageTrigger.setAttribute('aria-expanded', String(open));
+});
+document.addEventListener('click', event => {
+  if (!languageSwitcher.contains(event.target)) closeLanguageSwitcher();
+});
+
 const closeMenu = () => {
+  closeLanguageSwitcher();
   nav.classList.remove('open');
   document.body.classList.remove('nav-open');
   navToggle.setAttribute('aria-expanded', 'false');
@@ -132,6 +158,7 @@ navToggle.addEventListener('click', () => {
 languageLinks.forEach(link => link.addEventListener('click', event => {
   event.preventDefault();
   applyLanguage(link.dataset.language, true);
+  closeLanguageSwitcher();
 }));
 nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
   closeMenu();
