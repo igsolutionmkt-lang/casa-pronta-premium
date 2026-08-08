@@ -1,3 +1,4 @@
+// Localized content for the Larevia website.
 window.LAREVIA_I18N = {
   meta: {
     pt: {
