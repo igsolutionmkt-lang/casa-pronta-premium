@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Larevia — limpeza técnica, cuidado residencial, pós-obra e preparação de alojamentos locais no Porto, Gaia e Matosinhos.">
   <link rel="canonical" href="https://igsolutionmkt-lang.github.io/casa-pronta-premium/">
+  <link rel="alternate" hreflang="pt-PT" href="https://igsolutionmkt-lang.github.io/casa-pronta-premium/">
+  <link rel="alternate" hreflang="en" href="https://igsolutionmkt-lang.github.io/casa-pronta-premium/?lang=en">
+  <link rel="alternate" hreflang="es" href="https://igsolutionmkt-lang.github.io/casa-pronta-premium/?lang=es">
+  <link rel="alternate" hreflang="x-default" href="https://igsolutionmkt-lang.github.io/casa-pronta-premium/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_PT">
   <meta property="og:title" content="Larevia | Limpeza e cuidado de imóveis">
@@ -34,6 +38,13 @@
         <a href="#metodo">Método</a>
         <a href="#diferenciais">Diferenciais</a>
         <a href="#como-funciona">Como funciona</a>
+        <div class="language-switcher" aria-label="Idioma">
+          <a href="?lang=pt" lang="pt" data-language="pt" class="active" aria-current="page">PT</a>
+          <span aria-hidden="true">·</span>
+          <a href="?lang=en" lang="en" data-language="en">EN</a>
+          <span aria-hidden="true">·</span>
+          <a href="?lang=es" lang="es" data-language="es">ES</a>
+        </div>
         <a class="button button-small" href="#orcamento">Consulta privada</a>
       </nav>
     </div>
@@ -269,10 +280,12 @@
     <div class="container footer-bottom"><span>© <span id="year"></span> Larevia</span><span>Porto · Gaia · Matosinhos</span></div>
   </footer>
 
-  <script src="config.js"></script>
-  <script src="script.js"></script>
-  <script type="application/ld+json">
+  <script type="application/ld+json" id="structured-data">
   {"@context":"https://schema.org","@type":"HouseCleaning","name":"Larevia","url":"https://igsolutionmkt-lang.github.io/casa-pronta-premium/","email":"contacto@larevia.pt","areaServed":["Porto","Vila Nova de Gaia","Matosinhos"],"serviceType":["Limpeza residencial recorrente","Limpeza profunda","Limpeza pós-obra","Preparação de alojamento local"]}
   </script>
+  <script src="translations.js"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
+
